@@ -1,22 +1,25 @@
-import React, { Component } from "react";
-import Navigation from "./Components/navbar/Navigation";
-import './index.css';
-import Main from "./Components/main/Main";
-import horrorbooks from "./data/esercizi/horror.json";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import BookDetail from './Pages/BookDetail'
+import Home from './Pages/Home'
+import NotFoundPage from './Pages/NotFoundPage'
+import PostContext from './Context/PostContext'
 
 
 
-class App extends Component {
-
-  render () {
-    return(
-      <>
-        <Navigation/>
-        <Main horrorbooks= {horrorbooks}/>
-       
-        
-      </>
-    )
-  }
+const App = () =>
+{
+  return (
+    <BrowserRouter>
+      <PostContext>
+        <Routes>
+          <Route exact path="/" element={ <Home /> } />
+          <Route path="/bookdetail/:bookasin" element={ <BookDetail /> } />
+          <Route path="*" element={ <NotFoundPage /> } />
+        </Routes>
+      </PostContext>
+    </BrowserRouter>
+  )
 }
-export default App;
+
+export default App

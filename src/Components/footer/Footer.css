@@ -1,0 +1,13 @@
+.footer-costume {
+    background-color: lightcoral;
+    padding: 25px;
+}
+.footer-costume li {
+    list-style: none;
+    
+}
+.footer-costume li a {
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: black;
+} 
