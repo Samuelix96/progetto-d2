@@ -3,23 +3,18 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { Trash } from 'react-bootstrap-icons';
-import { nanoid } from 'nanoid';
-import Alert from 'react-bootstrap/Alert';
-import { PostProvider } from '../../Context/PostContext';
+
 import { Pen } from 'react-bootstrap-icons';
 import "./comment.css"
 
 
 function CommentArea ({ bookId })
 {
-  const { selected, setSelected } = useContext(PostProvider);
-  const [ showAlert, setShowAlert ] = useState(false);
-  const [ alertMessage, setAlertMessage ] = useState("");
-  const [ alertVariant, setAlertVariant ] = useState("");
+  
 
   const [ refresh, setRefresh ] = useState(false);
-  const [ author, setAuthor ] = useState('');
-  const [ rate, setRate ] = useState(0);
+  const [author, setAuthor] = useState('');
+  const [ rate, setRate ] = useState('');
   const [ commentTextArea, setCommentTextArea ] = useState('');
 
   const [ show, setShow ] = useState(false);
@@ -40,25 +35,11 @@ function CommentArea ({ bookId })
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // const handleAlert = (message, variant) =>
-  // {
-  //   setShowAlert(true);
-  //   setAlertMessage(message);
-  //   setAlertVariant(variant);
-
-  //   // impostare un timeout per nascondere automaticamente l'alert dopo un certo periodo di tempo, se lo desideri
-  //   setTimeout(() =>
-  //   {
-  //     setShowAlert(false);
-  //     setAlertMessage("");
-  //     setAlertVariant("");
-  //   }, 3000); // Nascondi l'alert dopo 5 secondi (5000 millisecondi)
-  // };
 
 
   const resetForm = () =>
   {
-    setAuthor('');
+    setAuthor('')
     setRate('');
     setCommentTextArea('');
   };
@@ -238,6 +219,7 @@ function CommentArea ({ bookId })
                     <Form.Control
                       as='textarea'
                       rows={ 3 }
+                      
                       value={ editedCommentText }
                       onChange={ e => setEditedCommentText(e.target.value) }
                     />
@@ -297,19 +279,20 @@ function CommentArea ({ bookId })
           </ul>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
+              
+              <Form.Label>email</Form.Label>
               <Form.Control
                 value={ author }
                 type="email"
-                onchange={ (e) => setAuthor(e.target.value) }
-                placeholder="name@example.com"
+                onChange={ (e) => setAuthor(e.target.value) }
+                placeholder="Your email"
                 autoFocus
               />
               <Form.Label>Voto da 1/5 </Form.Label>
               <Form.Control
                 value={ rate }
                 type="number"
-                onchange={ e => setRate(e.target.value) }
+                onChange={ (e) => setRate(e.target.value) }
                 placeholder="Voto da 1/5"
                 autoFocus
               />
@@ -320,9 +303,10 @@ function CommentArea ({ bookId })
             >
               <Form.Label>Example textarea</Form.Label>
               <Form.Control
-                placeholder="Enter your comment here"
+                
                 value={ commentTextArea }
-                onchange={ e => setCommentTextArea(e.target.value) }
+                name="commentTextArea"
+                onChange={ (e) => setCommentTextArea(e.target.value) }
                 as="textarea" rows={ 3 } />
               <Button variant="primary" onClick={ (e) => postComments(e) }>
                 Send comment
