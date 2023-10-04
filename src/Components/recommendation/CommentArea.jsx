@@ -27,7 +27,7 @@ function CommentArea ({ bookId })
 
 
   const Url = "https://striveschool-api.herokuapp.com/api/comments/";
-  const keyApi = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTA5ZDJlNmE3YzIyZjAwMTRjMTAzZjkiLCJpYXQiOjE2OTUxNDI2MzAsImV4cCI6MTY5NjM1MjIzMH0.dCEns1eEHd3UZl7jHLyeOUtXFK4UXv2JEbbn5G5nlaE"
+  const keyApi = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFkMTZmZTUyYmJmMzAwMTg3OWIxZjAiLCJpYXQiOjE2OTY0MDUyNDcsImV4cCI6MTY5NzYxNDg0N30.3njPWkxVp0kLob40Jezj4NkxeSvXSlFlqP00bTf_pSI" 
   const UrlAsin = Url + bookId;
 
 
